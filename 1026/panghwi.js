@@ -6,19 +6,20 @@ let input = fs
   .toString()
   .split('\n');
 // let input = fs.readFileSync('dev/stdin').toString().split('\n');
-const length = input[0];
+const length = Number(input[0]);
 const A = input[1].split(' ').map(Number);
 const B = input[2].split(' ').map(Number);
 let newArray = [];
-//A의 최솟값을 B의 최댓값의 인덱스에 할당하고 싶다
-
+let newBarray = new Array(length).fill(0);
 while (A.length !== 0) {
   let bIndex = B.indexOf(Math.max(...B));
-  B.splice(bIndex, 1);
-  console.log(B);
+  newBarray[bIndex] = Math.max(...B);
+  B[bIndex] = -1;
   let aIndex = A.indexOf(Math.min(...A));
-  console.log(A);
   newArray[bIndex] = Math.min(...A);
   A.splice(aIndex, 1);
 }
-console.log(newArray);
+const answer = newArray.reduce((acc, element, index) => {
+  return (acc += element * newBarray[index]);
+}, 0);
+console.log(answer);
