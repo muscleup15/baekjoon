@@ -18,4 +18,4 @@ sum = 0
 for i in range(N):
     sum += re_A[i] * B[i]
 
-print(sum)
+print(sum) 
