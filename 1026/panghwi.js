@@ -10,10 +10,9 @@ const length = Number(input[0]);
 const A = input[1].split(' ').map(Number);
 const B = input[2].split(' ').map(Number);
 let newArray = [];
-let newBarray = new Array(length).fill(0);
+let newBarray = B.slice();
 while (A.length !== 0) {
   let bIndex = B.indexOf(Math.max(...B));
-  newBarray[bIndex] = Math.max(...B);
   B[bIndex] = -1;
   let aIndex = A.indexOf(Math.min(...A));
   newArray[bIndex] = Math.min(...A);
