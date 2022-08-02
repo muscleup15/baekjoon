@@ -1,13 +1,22 @@
 let fs = require('fs');
-let input = fs
+const [info, rank] = fs
   .readFileSync(
     '/Users/panghwi/Library/Mobile Documents/com~apple~TextEdit/Documents/예제.txt'
   )
   .toString()
   .split('\n');
-// let input = fs.readFileSync('dev/stdin').toString().split('\n');
-
-const existNumber = Number(input[0].split(' ')[0]);
-const myNumber = Number(input[0].split(' ')[1]);
-const maxNumber = Number(input[0].split(' ')[2]);
-console.log(input);
+// const [info, rank] = fs.readFileSync('dev/stdin').toString().split('\n');
+const [existNumber, myScore, maxNumber] = info.split(' ').map(Number);
+if (existNumber === 0) {
+  console.log(1);
+} else {
+  const sortedRank = [...rank.split(' ').map(Number), myScore].sort(
+    (a, b) => b - a
+  );
+  const firstRank = sortedRank.findIndex((item) => item === myScore);
+  const lastRank =
+    sortedRank.length -
+    sortedRank.reverse().findIndex((item) => item === myScore);
+  const answer = lastRank <= maxNumber ? firstRank + 1 : -1;
+  console.log(answer);
+}
