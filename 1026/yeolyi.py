@@ -1,6 +1,3 @@
-from audioop import mul
-
-
 from functools import reduce
 
 input()
