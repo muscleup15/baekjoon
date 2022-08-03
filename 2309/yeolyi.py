@@ -1,14 +1,20 @@
-from functools import reduce
-
 arr = []
+arr2 = [False for _ in range(201)]
+remaining = 0
+
 for i in range(0, 9):
-    arr.append(int(input()))
+    temp = int(input())
+    arr.append(temp)
+    arr2[temp] = True
+    remaining += temp
 
-remaining = reduce(lambda a, b: a + b, arr, 0) - 100
+arr.sort()
+remaining -= 100
 
-for i in range(0, 8):
-    for j in range(i + 1, 9):
-        if arr[i] + arr[j] == remaining:
-            for k in sorted(filter(lambda x: x != arr[i] and x != arr[j], arr)):
-                print(k)
-            quit()
+for i in arr:
+    if i < remaining and arr2[remaining - i]:
+        for j in arr:
+            if j != i and j != remaining - i:
+                print(j)
+        quit()
+        
