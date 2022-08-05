@@ -5,16 +5,12 @@ let input = fs
   )
   .toString()
   .split('\n');
-if (input[0] == input.length - 1) {
-  input.shift();
-}
 
-input.map((element, index) => {
-  if (element.length === 0) {
+for (let i = 1; i < input.length; i++) {
+  if (input[i].length === 0) {
     console.log(1);
   } else {
-    const arr = [...element];
-    console.log(arr);
+    const arr = [...input[i]];
     let left = 1;
     let right = 1;
     for (let i = 0; i < arr.length - 1; i++) {
@@ -34,4 +30,4 @@ input.map((element, index) => {
     const answer = parseInt(Math.pow(2, Math.max(left, right)));
     console.log(answer);
   }
-});
+}
