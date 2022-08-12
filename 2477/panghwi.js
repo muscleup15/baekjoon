@@ -33,36 +33,22 @@ for (let i = 1; i < input.length; i++) {
 let leng = [{ East: east }, { West: west }, { North: north }, { South: south }];
 let total = leng[0].East * leng[2].North;
 
-for (let i = 0; i < array.length - 1; i++) {
-  if (array[i][0] == 3 && array[i + 1][0] == 2) {
-    width = array[i][1];
-    length = array[i + 1][1];
-  } else if (array[0][0] == 2 && array[array.length - 1][0] == 3) {
-    width = array[0][1];
-    length = array[array.length - 1][1];
-  }
-  if (array[i][0] == 1 && array[i + 1][0] == 3) {
-    width = array[i][1];
-    length = array[i + 1][1];
-  } else if (array[0][0] == 3 && array[array.length - 1][0] == 1) {
-    width = array[0][1];
-    length = array[array.length - 1][1];
-  }
-  if (array[i][0] == 2 && array[i + 1][0] == 4) {
-    width = array[i][1];
-    length = array[i + 1][1];
-  } else if (array[0][0] == 4 && array[array.length - 1][0] == 2) {
-    width = array[0][1];
-    length = array[array.length - 1][1];
-  }
-  if (array[i][0] == 4 && array[i + 1][0] == 1) {
-    width = array[i][1];
-    length = array[i + 1][1];
-  } else if (array[0][0] == 1 && array[array.length - 1][0] == 4) {
-    width = array[0][1];
-    length = array[array.length - 1][1];
-  }
-}
+getLength(array, 3, 2);
+getLength(array, 1, 3);
+getLength(array, 2, 4);
+getLength(array, 4, 1);
 
 let answer = (total - width * length) * Number(input[0]);
 console.log(answer);
+
+function getLength(array, num1, num2) {
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i][0] == num1 && array[i + 1][0] == num2) {
+      width = array[i][1];
+      length = array[i + 1][1];
+    } else if (array[0][0] == num2 && array[array.length - 1][0] == num1) {
+      width = array[0][1];
+      length = array[array.length - 1][1];
+    }
+  }
+}
