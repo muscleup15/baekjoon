@@ -21,4 +21,4 @@ if 0 not in check or 5 not in check:
 area = dis_list[0] * dis_list[-1] - (dis_list[2] * dis_list[3])
 
 result = area * melon
-print(result)
+print(result) 
