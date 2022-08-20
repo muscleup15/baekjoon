@@ -1,15 +1,14 @@
+const fs = require('fs'); // 밖으로 빼니까 빨라짐,,,?
 (() => {
-    const fs = require('fs');
     const input = fs.readFileSync('/dev/stdin').toString();
-    const cnt = Array(26).fill(0);
-
-    [...input]
+    const arr = [...input]
         .map(x => x.charCodeAt() - 65)
-        .forEach(x => cnt[x]++);
+    const cnt = Array(26).fill(0);
+    arr.forEach(x => cnt[x]++);
 
     const ans = [];
     let middle = null;
-    
+
     for (let [i, val] of cnt.entries()) {
         if (val === 0) { continue; }
         if (val % 2 !== 0) {
