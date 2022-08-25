@@ -4,6 +4,7 @@ let input = fs
     '/Users/panghwi/Library/Mobile Documents/com~apple~TextEdit/Documents/예제.txt'
   )
   .toString()
+  .trim()
   .split('\n');
 
 for (let i = 1; i < input.length; i++) {

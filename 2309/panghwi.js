@@ -12,7 +12,7 @@ let totalHeight = total.reduce((acc, element) => {
   return (acc += element);
 }, 0);
 outerFor: for (let i = 0; i < total.length; i++) {
-  innerFor: for (let j = total.length - 1; j > i; j--) {
+  for (let j = total.length - 1; j > i; j--) {
     if (total[i] + total[j] + 100 === totalHeight) {
       total[i] = 0;
       total[j] = 0;

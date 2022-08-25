@@ -6,7 +6,6 @@ let input = fs
   .toString()
   .split('\n');
 // let input = fs.readFileSync('dev/stdin').toString().split('\n');
-const length = Number(input[0]);
 const A = input[1].split(' ').map(Number);
 const B = input[2].split(' ').map(Number);
 let newArray = [];
