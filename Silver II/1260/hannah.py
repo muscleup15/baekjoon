@@ -38,7 +38,7 @@ for _ in range(m):
 for gra in graph:
     gra.sort()
 dfs(graph, start, visited)
-bfs(graph, start, n)
+bfs(graph, start, n) 
 
 print(*result1)
 print(*result2)
