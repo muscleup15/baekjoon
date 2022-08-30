@@ -10,5 +10,4 @@ input = Number(input);
 let arr = new Array(input).fill().map((v, i) => i + 1);
 let front = 0;
 let rear = arr.length;
-console.log(arr);
 //
