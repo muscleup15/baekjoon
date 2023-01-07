@@ -14,6 +14,7 @@ public class Panghwi {
         String initialName = br.readLine();
         int nameLength = initialName.length();
         String[] name = initialName.split("");
+//        char[] temp = initialName.toCharArray();이렇게도 할 수 있음
 
         for (int i = 0; i < n-1; i++) {
             String nextName = br.readLine();
