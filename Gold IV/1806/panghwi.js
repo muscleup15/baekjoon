@@ -16,14 +16,15 @@ for (let i = 0; i < sequence.length; i++) {
   sum.push(sum[i] + sequence[i]);
 }
 
-let count = sequence.length;
+let count = Number(condition.split(' ')[0]);
 
 if (sum[sum.length - 1] < totalNum) {
   console.log(0);
 } else {
   for (let i = 0; i < sum.length; i++) {
-    for (let j = 0; j < sum.length; j++) {
+    for (let j = i; j < i + count; j++) {
       if (sum[j] - sum[i] >= totalNum) {
+        minLength = j - i;
         count = Math.min(j - i, count);
       }
     }
