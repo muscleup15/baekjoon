@@ -1,19 +1,31 @@
-from itertools import combinations
-
 N, M = map(int, input().split())
-arr = input().split()
-arr.sort()
+src = [list(map(int, input())) for _ in range(N)]
+dst = [list(map(int, input())) for _ in range(N)]
 
-vowels = set(["a", "e", "i", "o", "u"])
 
-ans = ""
+def swap(n, m):
+    for i in range(3):
+        for j in range(3):
+            src[n + i][m + j] = 0 if src[n + i][m + j] == 1 else 1
 
-for i in combinations(range(M), N):
-    vowelCnt = len([x for x in i if arr[x] in vowels])
-    if vowelCnt < 1 or N - vowelCnt < 2:
-        continue
-    for j in i:
-        ans += arr[j]
-    ans += "\n"
 
-print(ans)
+if N < 3 or M < 3:
+    for i in range(N):
+        if src[i] != dst[i]:
+            print(-1)
+            break
+    else:
+        print(0)
+else:
+    cnt = 0
+    for i in range(N - 2):
+        for j in range(M - 2):
+            if src[i][j] != dst[i][j]:
+                swap(i, j)
+                cnt += 1
+    for i in range(N):
+        if src[i] != dst[i]:
+            print(-1)
+            break
+    else:
+        print(cnt)
